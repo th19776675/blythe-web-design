@@ -1,0 +1,26 @@
+
+* {
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: "ArgentPixel";
+  src: url("./assets/fonts/ArgentPixelCF-Regular.eot"),
+  url("./assets/fonts/ArgentPixelCF-Regular.woff"),
+  url("./assets/fonts/ArgentPixelCF-Regular.woff2")
+}
+
+@font-face {
+  font-family: "ArgentPixelItalic";
+  src: url("./assets/fonts/ArgentPixelCF-Italic.eot"),
+  url("./assets/fonts/ArgentPixelCF-Italic.woff"),
+  url("./assets/fonts/ArgentPixelCF-Italic.woff2")
+}
+
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: black;
+}
+
