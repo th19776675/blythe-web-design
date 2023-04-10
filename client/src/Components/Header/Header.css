@@ -1,0 +1,30 @@
+header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 50px;
+}
+
+.blythe-logo {
+  letter-spacing: -4px;
+  font-size: 32px;
+  margin: 0;
+}
+
+.header-links-wrapper {
+  width: 250px;
+  display: flex;
+  justify-content: space-between;
+  padding-top: 5px;
+}
+
+.header-links-wrapper img{
+  image-rendering: pixelated;
+  height: 20px;
+}
+
+.header-links-wrapper a:hover {
+  opacity: 0.5;
+}
+

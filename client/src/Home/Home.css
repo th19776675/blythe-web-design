@@ -1,0 +1,24 @@
+.outer-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.home-wrapper {
+  width: 275px;
+}
+
+.home-wrapper h3 {
+  font-size: 32px;
+  letter-spacing: -4px;
+  font-family: ArgentPixelItalic;
+  margin-top: 10px;
+}
+
+.menu-option:hover {
+  opacity: 0.5
+}
+
+.arrow {
+  font-family: ArgentPixel;
+}
