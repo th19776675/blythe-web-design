@@ -2,6 +2,7 @@
   width: 100%;
   display: flex;
   justify-content: center;
+  padding-bottom: 20px;
 }
 
 .home-wrapper {
@@ -21,4 +22,9 @@
 
 .arrow {
   font-family: ArgentPixel;
+}
+.menu-option {
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  user-select: none; /* Standard syntax */
 }

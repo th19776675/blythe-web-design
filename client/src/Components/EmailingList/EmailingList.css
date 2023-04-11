@@ -1,0 +1,29 @@
+.email-wrapper {
+  margin-top: 10px;
+}
+
+.email-wrapper input {
+  margin-top: 10px;
+  width: 100%;
+  height: 32px;
+  border: 1px solid #d1c142;
+  background: none;
+  color: #d1c142;
+  padding: 0 10px;
+  font-family: ArgentPixel;
+}
+
+.email-wrapper input:focus, .email-wrapper input:hover{
+  outline: 1px solid #d1c142
+}
+
+.email-btn {
+  padding: 0 5px 5px 5px;
+  border: 1px solid #d1c142;
+  margin-top: 10px;
+}
+
+.email-btn:hover, .email-btn:focus {
+  background: #d1c142;
+  opacity: 0.5;
+}
