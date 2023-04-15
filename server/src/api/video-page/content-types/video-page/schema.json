@@ -1,0 +1,25 @@
+{
+  "kind": "singleType",
+  "collectionName": "video_pages",
+  "info": {
+    "singularName": "video-page",
+    "pluralName": "video-pages",
+    "displayName": "VideoPage"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "image": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "kind": "singleType",
+  "collectionName": "event_pages",
+  "info": {
+    "singularName": "event-page",
+    "pluralName": "event-pages",
+    "displayName": "EventPage"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "adImage": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "archive": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": true
+    }
+  }
+}

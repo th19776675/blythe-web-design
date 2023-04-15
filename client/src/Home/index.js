@@ -93,12 +93,12 @@ const Home = () => {
           </div>
           <div className="menu-option">
             <h3 onClick={videoHandler}>LATEST VIDEO <span className="arrow" style={{paddingLeft: `${arrowPad}px`}}>»</span></h3>
-            {videoState ? <JustifiedText fontSize="16px">CLICK TO WATCH A VIDEO</JustifiedText> : ""}
+            {videoState ? <JustifiedText fontSize="16px">CLICK TO WATCH A VIDEO</JustifiedText> : <Videos />}
 
           </div>
           <div className="menu-option">
             <h3 onClick={eventHandler}>UPCOMING EVENT <span className="arrow" style={{paddingLeft: `${arrowPad}px`}}>»</span></h3>
-            {eventState ? <JustifiedText fontSize="16px">CLICK TO EXPAND</JustifiedText> : <Videos />}
+            {eventState ? <JustifiedText fontSize="16px">CLICK TO EXPAND</JustifiedText> : ""}
 
           </div>
           <div className="menu-option">
