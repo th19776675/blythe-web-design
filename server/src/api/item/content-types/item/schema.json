@@ -33,7 +33,7 @@
         "audios"
       ]
     },
-    "longDesc": {
+    "specs": {
       "type": "richtext"
     },
     "stock": {
@@ -46,6 +46,9 @@
         "book",
         "sticker"
       ]
+    },
+    "abbr": {
+      "type": "string"
     }
   }
 }

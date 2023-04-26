@@ -1,6 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit"
 
 const initialState = {
+  isCheckoutOpen: false,
   cart: [],
   items: []
 };
@@ -33,6 +34,9 @@ export const cartSlice = createSlice({
         }
         return item;
       })
+    },
+    setIsCheckoutOpen: (state) => {
+      state.isCheckoutOpen = !state.isCheckoutOpen
     }
   }
 });
@@ -43,6 +47,7 @@ export const {
   removeFromCard,
   increaseCount,
   decreaseCount,
+  setIsCheckoutOpen,
 } = cartSlice.actions;
 
 export default cartSlice.reducer;

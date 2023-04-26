@@ -9,13 +9,14 @@ const JustifiedText = (props) => {
       fontSize: props.fontSize,
       letterSpacing: props.letterSpacing,
       width: props.width,
-      fontFamily: props.fontFamily
+      fontFamily: props.fontFamily,
+      // overflowY: "hidden"
     }}>
       {props.children}
       <span style=
       {{
         width: "100%",
-        display: "inline-block"
+        display: "inline-block",
       }}></span>
     </div>
   )

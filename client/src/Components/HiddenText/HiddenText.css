@@ -1,0 +1,22 @@
+.hidden-short {
+  position: relative;
+}
+
+.hidden-short:after {
+  content: "";
+  position: absolute;
+  display: block;
+  left: 0px;
+  top: 0px;
+  width: 275px;
+  height: 57px;
+  background-image: linear-gradient(to top, rgba(0, 0, 0, 0.684), rgba(221, 81, 81, 0));
+}
+
+.hidden-btn{
+  margin-top: 10px;
+}
+
+.hidden-btn:focus {
+  outline: none
+}

@@ -1,0 +1,68 @@
+.cart-box {
+  border: solid 1px #d1c142;
+  padding: 10px;
+  margin-top: 10px;
+}
+
+.cart-number {
+  font-family: "ArgentPixel";
+  border-bottom: 1px solid #d1c142;
+}
+
+.cart-list-items {
+  margin-top: 10px;
+}
+
+.cart-button-list {
+  margin-top: 10px;
+  display: flex;
+  gap: 0 5px
+  /* justify-content: stretch; */
+}
+
+.list-x {
+  font-family: "ArgentPixel";
+
+}
+
+.cart-line {
+  width: 100%;
+  height: 1px;
+  background-color: #d1c142;
+  margin: 10px 0;
+}
+
+.cart-list button {
+  font-family: "ArgentPixel";
+  width: 20px;
+  height: 20px; 
+  background: none;
+  border: 1px solid #d1c142;
+  color: #d1c142;
+  /* margin: 0 5px; */
+}
+
+.view-btn, .remove-btn {
+  width: auto;
+  flex-grow: 1
+}
+
+.cart-list button:hover {
+  background-color: #d1c142;
+  opacity: 0.5
+}
+
+.cart-list button:focus {
+  outline: none;
+  /* background-color: #d1c142; */
+}
+
+.checkout-btn {
+  font-family: "ArgentPixel";
+  width: 100%;
+  height: 20px; 
+  background: none;
+  border: 1px solid #d1c142;
+  color: #d1c142;
+  /* margin: 0 5px; */
+}

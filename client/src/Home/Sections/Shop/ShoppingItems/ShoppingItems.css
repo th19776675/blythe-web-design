@@ -1,0 +1,76 @@
+.shopping-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 25px 0;
+  gap: 25px 0;
+}
+
+.shop-img {
+  width: 100px;
+  height: 100px;
+  border: solid 1px #d1c142
+}
+
+.shopping-item {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  gap: 10px;
+}
+
+.div-line {
+  border: solid 0.5px #d1c142;
+  width: 100%;
+  height: 1px
+}
+
+.shop-col {
+  display: flex;
+  gap: 0 10px
+}
+
+.shop-spec {
+  display: inline;
+  width: 165px;
+}
+
+button {
+  background-color: black;
+  border: none;
+  color: #d1c142;
+  width: fit-content;
+  font-family: ArgentPixelItalic;
+}
+
+.btn-arrow {
+  font-family: ArgentPixel;
+}
+
+.item-foot {
+  display: flex;
+  gap: 0 10px;
+}
+
+.item-add {
+  flex-grow: 1;
+}
+
+.item-cat {
+  /* background-color: #d1c142; */
+  border: 1px dashed #d1c142;
+  /* color: black; */
+  display: flex;
+  font-size: 12px;
+  padding: 5px 10px;
+  /* border-radius: 100px */
+}
+
+.item-add {
+  border: solid 1px #d1c142;
+}
+
+.item-price {
+  font-size: 20px;
+}

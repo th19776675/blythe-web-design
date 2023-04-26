@@ -101,7 +101,7 @@ const Home = () => {
             {eventState ? <JustifiedText fontSize="16px">CLICK TO EXPAND</JustifiedText> : ""}
 
           </div>
-          <div className="menu-option">
+          <div className="menu-option" id="test-s">
             <h3 onClick={zineHandler}>UPCOMING ZINE <span className="arrow" style={{paddingLeft: `${arrowPad}px`}}>»</span></h3>
             {zineState ? <JustifiedText fontSize="16px">CLICK TO EXPAND</JustifiedText> : ""}
 
