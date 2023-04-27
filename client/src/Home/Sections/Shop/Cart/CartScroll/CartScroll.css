@@ -1,0 +1,11 @@
+.scroll-btn {
+    background: black;
+    border: 1px solid #d1c142;
+    color: #d1c142;
+    font-family: "ArgentPixel";
+    padding: 5px;
+    position: fixed;
+    left: 10px;
+    bottom: 10px;
+    z-index: 3;
+}

@@ -13,10 +13,10 @@ export const cartSlice = createSlice({
     setItems: (state, action) => {
       state.items = action.payload;
     },
-    addToCard: (state, action) => {
+    addToCart: (state, action) => {
       state.cart = [...state.cart, action.payload.item]
     },
-    removeFromCard: (state, action) => {
+    removeFromCart: (state, action) => {
       state.cart = state.cart.filter((item) => item.id !== action.payload.id)
     },
     increaseCount: (state, action) => {
@@ -43,8 +43,8 @@ export const cartSlice = createSlice({
 
 export const {
   setItems, 
-  addToCard,
-  removeFromCard,
+  addToCart,
+  removeFromCart,
   increaseCount,
   decreaseCount,
   setIsCheckoutOpen,

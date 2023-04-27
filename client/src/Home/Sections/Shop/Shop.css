@@ -47,7 +47,7 @@
   flex-grow: 1
 }
 
-.cart-list button:hover {
+.cart-list button:active {
   background-color: #d1c142;
   opacity: 0.5
 }
@@ -65,4 +65,5 @@
   border: 1px solid #d1c142;
   color: #d1c142;
   /* margin: 0 5px; */
+  margin-top: 10px;
 }

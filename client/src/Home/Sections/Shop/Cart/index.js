@@ -5,9 +5,10 @@ import {useNavigate} from "react-router-dom"
 import State, {
   decreaseCount,
   increaseCount,
-  removeFromCard,
+  removeFromCart,
   setIsCheckoutOpen
 } from "../../../../State"
+import CartScroll from "./CartScroll";
 
 
 const Cart = () => {
@@ -29,45 +30,33 @@ const Cart = () => {
   };
 
   return (
-    <div>
+    <div id="cart">
+      <CartScroll />
       <JustifiedText fontSize="24px" letterSpacing="-3px">
         YOUR CART
       </JustifiedText>
       <div className="cart-box">
       <p>SHOPPING BAG ({cart.length})</p> 
 
+    
+
       {/* Cart List */}
-      <div className="cart-list">
+      <div className="cart-list" >
         {cart.map((item) => (
-          <div className="cart-list-items" key={`${item.attributes.name}-${item.id}`}>
-            <JustifiedText></JustifiedText>
-            <JustifiedText fontFamily="ArgentPixelItalic" fontSize="16px"> <span className="cart-number">{item.count}</span> <span className="list-x">x</span>{item.attributes.name}</JustifiedText>
+          <div className="cart-list-items">
+            <JustifiedText fontFamily="ArgentPixelItalic" fontSize="16px"> <span className="cart-number">{item.count}</span> <span className="list-x">x </span>{item.attributes.name}</JustifiedText>
               <div className="cart-button-list">
+                <button className="decrement-btn" onClick={() => { 
+                  if (item.count > 1) {
+                    dispatch(decreaseCount({ id: item.id }))
+                  }
+                  }}>-1</button>
                 <button className="increment-btn" onClick={() => dispatch(increaseCount({ id: item.id }))}>+1</button>
-                <button className="decrement-btn" onClick={() => dispatch(decreaseCount({ id: item.id }))}>-1</button>
                 <button className="view-btn" onClick={handleClickScroll} id={item.attributes.abbr}>VIEW ITEM</button>
-                <button className="remove-btn">REMOVE</button>
+                <button className="remove-btn" onClick={() => dispatch(removeFromCart({id: item.id}))}>REMOVE</button>
               </div>
           </div>
         ))}
-        {/* <div className="cart-list-items">
-          <JustifiedText fontFamily="ArgentPixelItalic" fontSize="16px"> <span className="cart-number">1</span> <span className="list-x">x</span> BLYTHE NOTEBOOK #1</JustifiedText>
-          <div className="cart-button-list">
-            <button className="increment-btn">+1</button>
-            <button className="decrement-btn">-1</button>
-            <button className="view-btn" onClick={handleClickScroll} id="test">VIEW ITEM</button>
-            <button className="remove-btn">REMOVE</button>
-          </div>
-        </div>
-        <div className="cart-list-items">
-          <JustifiedText fontFamily="ArgentPixelItalic" fontSize="16px"> <span className="cart-number">1</span> <span className="list-x">x</span> BLYTHE NOTEBOOK #1</JustifiedText>
-          <div className="cart-button-list">
-            <button className="increment-btn">+1</button>
-            <button className="decrement-btn">-1</button>
-            <button className="view-btn" onClick={handleClickScroll} id="test">VIEW ITEM</button>
-            <button className="remove-btn">REMOVE</button>
-          </div>
-        </div> */}
       </div>
 
       <div className="cart-line"></div>
