@@ -5,73 +5,74 @@ import { useState, useEffect } from 'react'
 import Shop from "./Sections/Shop"
 import Videos from "./Sections/Videos"
 import EmailingList from "../Components/EmailingList"
+import ArrowAni from "../Components/ArrowAni"
 
 const Home = () => {
   // let x = true
-  const [arrowPad, setArrowPad] = useState(2)
+  // const [arrowPad, setArrowPad] = useState(2)
   
-  useEffect(() => {
-    let arrowRight = true
-    setInterval(() => {
-      if (arrowRight === true){
-        setArrowPad(5)
-        arrowRight = false
-      } else {
-        setArrowPad(2)
-        arrowRight = true
-      }
-    }, 500);
+  // useEffect(() => {
+  //   let arrowRight = true
+  //   setInterval(() => {
+  //     if (arrowRight === true){
+  //       setArrowPad(5)
+  //       arrowRight = false
+  //     } else {
+  //       setArrowPad(2)
+  //       arrowRight = true
+  //     }
+  //   }, 500);
 
-  }, [])
+  // }, [])
 
   
-  const [shopState, setShopState] = useState(true)
+  const [shopState, setShopState] = useState([true, "»"])
   
   const shopHandler = () => {
-    if (shopState === true) {
-      setShopState(false)
+    if (shopState[0] === true) {
+      setShopState([false, "«"])
     } else {
-      setShopState(true)
+      setShopState([true, "»"])
     }
   }
   
-  const [contactState, setContactState] = useState(true)
-  
+  const [contactState, setContactState] = useState([true, "»"])
+
   const contactHandler = () => {
-    if (contactState === true) {
-      setContactState(false)
+    if (contactState[0] === true) {
+      setContactState([false, "«"])
     } else {
-      setContactState(true)
+      setContactState([true, "»"])
     }
   }
   
-  const [videoState, setVideoState] = useState(true)
-  
+  const [videoState, setVideoState] = useState([true, "»"])
+ 
   const videoHandler = () => {
-    if (videoState === true) {
-      setVideoState(false)
+    if (videoState[0] === true) {
+      setVideoState([false, "«"])
     } else {
-      setVideoState(true)
+      setVideoState([true, "»"])
     }
   }
   
-  const [eventState, setEventState] = useState(true)
+  const [eventState, setEventState] = useState([true, "»"])
   
   const eventHandler = () => {
-    if (eventState === true) {
-      setEventState(false)
+    if (eventState[0] === true) {
+      setEventState([false, "«"])
     } else {
-      setEventState(true)
+      setEventState([true, "»"])
     }
   }
   
-  const [zineState, setZineState] = useState(true)
+  const [zineState, setZineState] = useState([true, "»"])
   
   const zineHandler = () => {
-    if (zineState === true) {
-      setZineState(false)
+    if (zineState[0] === true) {
+      setZineState([false, "«"])
     } else {
-      setZineState(true)
+      setZineState([true, "»"])
     }
   }
 
@@ -83,27 +84,27 @@ const Home = () => {
       <div className="outer-wrapper">
         <main className="home-wrapper">
           <div className="menu-option">
-            <h3 onClick={shopHandler}>SHOP <span className="arrow" style={{paddingLeft: `${arrowPad}px`}}>»</span></h3>
-            {shopState ? <JustifiedText fontSize="16px" letterSpacing="-2px">CLICK TO VIEW PRODUCTS</JustifiedText> : <Shop />}
+            <h3 onClick={shopHandler}>SHOP <ArrowAni>{shopState[1]}</ArrowAni></h3>
+            {shopState[0] ? <JustifiedText fontSize="16px">CLICK TO VIEW PRODUCTS</JustifiedText> : <Shop />}
           </div>
           <div className="menu-option">
-            <h3 onClick={contactHandler}>CONTACT <span className="arrow" style={{paddingLeft: `${arrowPad}px`}}>»</span></h3>
-            {contactState ? <JustifiedText fontSize="16px">CLICK TO VIEW CONTACT OPTIONS</JustifiedText> : ""}
+            <h3 onClick={contactHandler}>CONTACT <ArrowAni>{contactState[1]}</ArrowAni></h3>
+            {contactState[0] ? <JustifiedText fontSize="16px">CLICK TO VIEW CONTACT OPTIONS</JustifiedText> : ""}
 
           </div>
           <div className="menu-option">
-            <h3 onClick={videoHandler}>LATEST VIDEO <span className="arrow" style={{paddingLeft: `${arrowPad}px`}}>»</span></h3>
-            {videoState ? <JustifiedText fontSize="16px">CLICK TO WATCH A VIDEO</JustifiedText> : <Videos />}
+            <h3 onClick={videoHandler}>LATEST VIDEO <ArrowAni>{videoState[1]}</ArrowAni></h3>
+            {videoState[0] ? <JustifiedText fontSize="16px">CLICK TO WATCH A VIDEO</JustifiedText> : <Videos />}
 
           </div>
           <div className="menu-option">
-            <h3 onClick={eventHandler}>UPCOMING EVENT <span className="arrow" style={{paddingLeft: `${arrowPad}px`}}>»</span></h3>
-            {eventState ? <JustifiedText fontSize="16px">CLICK TO EXPAND</JustifiedText> : ""}
+            <h3 onClick={eventHandler}>UPCOMING EVENT <ArrowAni>{eventState[1]}</ArrowAni></h3>
+            {eventState[0] ? <JustifiedText fontSize="16px">CLICK TO EXPAND</JustifiedText> : ""}
 
           </div>
           <div className="menu-option" id="test-s">
-            <h3 onClick={zineHandler}>UPCOMING ZINE <span className="arrow" style={{paddingLeft: `${arrowPad}px`}}>»</span></h3>
-            {zineState ? <JustifiedText fontSize="16px">CLICK TO EXPAND</JustifiedText> : ""}
+            <h3 onClick={zineHandler}>UPCOMING ZINE <ArrowAni>{zineState[1]}</ArrowAni></h3>
+            {zineState[0] ? <JustifiedText fontSize="16px">CLICK TO EXPAND</JustifiedText> : ""}
 
           </div>
 

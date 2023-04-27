@@ -1,6 +1,8 @@
 import "./HiddenText.css"
 import { useState } from "react";
+import ArrowAni from "../ArrowAni";
 var ellipsis = require('text-ellipsis');
+
 
 
 
@@ -20,7 +22,7 @@ const HiddenText = (props) => {
   return (
     <div>
       {str.length >= 97 ? isTextOpen[0] ? <p>{str}</p> : <p className="hidden-short">{ellipsis(str, charLimit)}</p> : <p>{str}</p>}
-      {str.length >= 97 ? <button className="hidden-btn" onClick={hiddenHandler}> {isTextOpen[1]} <span className="btn-arrow">{isTextOpen[2]}</span> </button> : ""}
+      {str.length >= 97 ? <button className="hidden-btn" onClick={hiddenHandler}> {isTextOpen[1]} <ArrowAni>{isTextOpen[2]}</ArrowAni> </button> : ""}
     </div>
   )
 };

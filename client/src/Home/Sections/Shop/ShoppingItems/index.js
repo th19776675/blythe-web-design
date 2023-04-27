@@ -32,7 +32,7 @@ const ShoppingItems = () => {
           </HiddenText>
           <div className="item-foot">
             <span className="item-price">$15</span>
-            <span className="item-cat">notebook</span>
+            <span className="item-cat">ZINE</span>
             <button className="item-add">ADD TO CART</button>
           </div>
         </div>

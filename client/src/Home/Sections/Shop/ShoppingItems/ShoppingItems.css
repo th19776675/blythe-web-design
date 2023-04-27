@@ -36,13 +36,7 @@
   width: 165px;
 }
 
-button {
-  background-color: black;
-  border: none;
-  color: #d1c142;
-  width: fit-content;
-  font-family: ArgentPixelItalic;
-}
+
 
 .btn-arrow {
   font-family: ArgentPixel;
@@ -54,6 +48,11 @@ button {
 }
 
 .item-add {
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+  color: #d1c142;
+  width: fit-content;
+  font-family: ArgentPixelItalic;
   flex-grow: 1;
 }
 
@@ -65,6 +64,10 @@ button {
   font-size: 12px;
   padding: 5px 10px;
   /* border-radius: 100px */
+}
+
+.item-cat:active {
+  opacity: 0.5;
 }
 
 .item-add {

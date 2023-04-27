@@ -1,8 +1,10 @@
 .hidden-short {
   position: relative;
+  -webkit-mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+  mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
 }
 
-.hidden-short:after {
+/* .hidden-short:after {
   content: "";
   position: absolute;
   display: block;
@@ -11,12 +13,22 @@
   width: 275px;
   height: 57px;
   background-image: linear-gradient(to top, rgba(0, 0, 0, 0.684), rgba(221, 81, 81, 0));
-}
+} */
 
 .hidden-btn{
   margin-top: 10px;
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+  color: #d1c142;
+  width: fit-content;
+  font-family: ArgentPixelItalic;
 }
 
 .hidden-btn:focus {
   outline: none
 }
+
+
+
+
+
