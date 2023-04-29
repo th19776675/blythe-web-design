@@ -78,7 +78,7 @@ const ShoppingItems = () => {
             }>ADD TO CART</button>
             </div>
           </div>
-        )) : "Loading"}
+        )) : "Loading..."}
 
       </div>
     </div>

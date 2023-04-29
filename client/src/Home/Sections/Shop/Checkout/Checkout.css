@@ -1,0 +1,16 @@
+/* .checkout-col {
+  flex
+} */
+
+.step-line {
+  width: 120px;
+  height: 1px;
+  /* background-color: 1px solid #d1c142; */
+  display: inline-block;
+  border: 1px dashed #d1c142;
+  margin-bottom: 3px
+}
+
+/* .step-label {
+  display: flex;
+} */
