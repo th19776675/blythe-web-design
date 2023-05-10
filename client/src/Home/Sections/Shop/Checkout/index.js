@@ -6,8 +6,11 @@ import { useState } from "react";
 import { useSelector } from "react-redux";
 import * as yup from "yup";
 import "./Checkout.css"
+import { loadStripe } from "@stripe/stripe-js";
 
-
+const stripePromise = loadStripe(
+  "pk_test_51N2WpbApEmDpm3BWbttFPh5xWGszsbXI3qhO986VkAZzog8RxK9vA8p8kVAG6qkODyVtuShQnWrAxZ8lhyv1Yjcu00QhQqy42T"
+);
 
 const Checkout = () => {
   const [activeStep, setActiveStep] = useState(0);
@@ -25,8 +28,35 @@ const Checkout = () => {
         ...values.billingAddress,
         isSameAddress: true, 
       })
-
     }
+
+    if  (isSecondStep) {
+      makePayment(values)
+    }
+
+    actions.setTouched({})
+  }
+
+  async function makePayment(values) {
+    const stripe = await stripePromise;
+    const requestBody = {
+      userName: [values.firstName, values.lastName].join(" "),
+      email: values.email,
+      products: cart.map(({ id, count }) => ({
+        id,
+        count,
+      })),
+    };
+
+    const response = await fetch("http://localhost:1337/api/orders", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(requestBody),
+    });
+    const session = await response.json();
+    await stripe.redirectToCheckout({
+      sessionId: session.id,
+    });
   }
 
 
@@ -83,7 +113,7 @@ const Checkout = () => {
                       Back
                     </button>
                   )}
-                  <button className="checkout-buttons"type="submit" onClick={() => {
+                  <button className="checkout-buttons" type="submit" onClick={() => {
                     if (Object.keys(errors).length > 0) {
                       console.log(errors);
                       setErrorMsg("*MISSING FIELDS*")
