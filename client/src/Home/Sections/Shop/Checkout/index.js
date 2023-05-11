@@ -40,12 +40,15 @@ const Checkout = () => {
   async function makePayment(values) {
     const stripe = await stripePromise;
     const requestBody = {
-      userName: [values.firstName, values.lastName].join(" "),
+      userName: [values.billingAddress.firstName, values.billingAddress.lastName].join(" "),
       email: values.email,
       products: cart.map(({ id, count }) => ({
         id,
         count,
       })),
+      billingAddress: `${values.billingAddress.street1} ${values.billingAddress.street2}, ${values.billingAddress.city} ${values.billingAddress.postCode}, ${values.billingAddress.state}, ${values.billingAddress.country}`,
+      shippingAddress: `${values.shippingAddress.street1} ${values.shippingAddress.street2}, ${values.shippingAddress.city} ${values.shippingAddress.postCode}, ${values.shippingAddress.state}, ${values.shippingAddress.country}`,
+      phone: values.phoneNumber
     };
 
     const response = await fetch("http://localhost:1337/api/orders", {
@@ -57,6 +60,7 @@ const Checkout = () => {
     await stripe.redirectToCheckout({
       sessionId: session.id,
     });
+    
   }
 
 

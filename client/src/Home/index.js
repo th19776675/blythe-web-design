@@ -7,6 +7,10 @@ import Videos from "./Sections/Videos"
 import EmailingList from "../Components/EmailingList"
 import ArrowAni from "../Components/ArrowAni"
 
+import { useLocation } from 'react-router-dom';
+import queryString from 'query-string';
+
+
 const Home = () => {
   // let x = true
   // const [arrowPad, setArrowPad] = useState(2)
@@ -25,7 +29,14 @@ const Home = () => {
 
   // }, [])
 
-  
+
+
+  const [confirmState, setConfirmState] = useState(false)
+
+  const location = useLocation();
+  const queryParams = queryString.parse(location.search);
+
+
   const [shopState, setShopState] = useState([true, "»"])
   
   const shopHandler = () => {
@@ -76,12 +87,33 @@ const Home = () => {
     }
   }
 
+  useEffect(()=> {
+    console.log(queryParams)
+    if (queryParams.payment && queryParams.payment == "true") {
+      setConfirmState(true)
+      console.log("TEST")
+    } 
+  }, [])
 
+  const confirmHandler = () => {
+    setConfirmState(false)
+  }
 
 
   return (
     <div>
       <div className="outer-wrapper">
+        {
+          confirmState ?
+          <div className="confirm-wrapper">
+            <div className="confirm-box">
+              <p>Thanks for purchasing! <br /> All good now.</p>
+            </div>
+            <button className="image-box-btn" onClick={confirmHandler}>Close</button>
+          </div>
+          :
+          ""
+        }
         <main className="home-wrapper">
           <div className="menu-option">
             <h3 onClick={shopHandler}>SHOP <ArrowAni>{shopState[1]}</ArrowAni></h3>

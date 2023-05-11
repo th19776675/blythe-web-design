@@ -32,3 +32,30 @@
 button:active {
   opacity:0.5;
 }
+
+.confirm-wrapper {
+  position: fixed;
+  left: 0;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.75);
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 4;
+  flex-direction: column;
+  gap:25px 0;
+}
+
+.confirm-box {
+  border: 1px solid #d1c142;
+  background-color: black;
+  width: 300px;
+  padding: 10px;
+  text-align: center;
+}
+
+.confirm-box p {
+  color: #d1c142;
+}

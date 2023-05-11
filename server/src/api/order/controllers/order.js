@@ -11,7 +11,7 @@ const { createCoreController } = require('@strapi/strapi').factories;
 
 module.exports = createCoreController('api::order.order', ({ strapi })=> ({
     async create(ctx) {
-        const { products, userName, email } = ctx.request.body;
+        const { products, userName, email, shippingAddress, phone, billingAddress } = ctx.request.body;
         try {
           // retrieve item information
           const lineItems = await Promise.all(
@@ -39,14 +39,18 @@ module.exports = createCoreController('api::order.order', ({ strapi })=> ({
             payment_method_types: ["card"],
             customer_email: email,
             mode: "payment",
-            success_url: "http://localhost:3000",
+            invoice_creation: {
+                enabled: true,
+            },
+            success_url: "http://localhost:3000?payment=true",
             cancel_url: "http://localhost:3000",
             line_items: lineItems,
           });
     
           // create the item
           await strapi.service("api::order.order").create({ 
-            data: { userName, products, stripeSessionId: session.id },
+            data: { email, userName, stripeSessionId: session.id, shippingAddress, billingAddress, phone,
+            products: lineItems},
          });
     
           // return the session id
