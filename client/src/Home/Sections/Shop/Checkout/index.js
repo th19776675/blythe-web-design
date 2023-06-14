@@ -23,13 +23,6 @@ const Checkout = () => {
   const handleFormSubmit = async (values, actions) => {
     setActiveStep(activeStep + 1);
 
-    if (isFirstStep && values.shippingAddress.isSameAddress) {
-      actions.setFieldValue( "shippingAddress", {
-        ...values.billingAddress,
-        isSameAddress: true, 
-      })
-    }
-
     if  (isSecondStep) {
       makePayment(values)
     }
@@ -46,8 +39,6 @@ const Checkout = () => {
         id,
         count,
       })),
-      billingAddress: `${values.billingAddress.street1} ${values.billingAddress.street2}, ${values.billingAddress.city} ${values.billingAddress.postCode}, ${values.billingAddress.state}, ${values.billingAddress.country}`,
-      shippingAddress: `${values.shippingAddress.street1} ${values.shippingAddress.street2}, ${values.shippingAddress.city} ${values.shippingAddress.postCode}, ${values.shippingAddress.state}, ${values.shippingAddress.country}`,
       phone: values.phoneNumber
     };
 
@@ -91,12 +82,6 @@ const Checkout = () => {
               <form onSubmit={handleSubmit}>
                 {isFirstStep && (
                   <Shipping
-                    values={values}
-                    errors={errors}
-                    touched={touched}
-                    handleBlur={handleBlur}
-                    handleChange={handleChange}
-                    setFieldValue={setFieldValue}
                   />
                 )}
                 {isSecondStep && (
@@ -117,14 +102,7 @@ const Checkout = () => {
                       Back
                     </button>
                   )}
-                  <button className="checkout-buttons" type="submit" onClick={() => {
-                    if (Object.keys(errors).length > 0) {
-                      console.log(errors);
-                      setErrorMsg("*MISSING FIELDS*")
-                    } else {
-                      setErrorMsg("")
-                    }
-                  }}>
+                  <button className="checkout-buttons" type="submit" >
                     {!isSecondStep ? "Next" : "Place Order"}
                   </button>
 
@@ -143,76 +121,12 @@ const Checkout = () => {
 }
 
 const initialValues = {
-  billingAddress: {
-    firstName: "",
-    lastName: "",
-    country: "",
-    street1: "",
-    street2: "",
-    city: "",
-    state: "",
-    postCode: "",
-  },
-  shippingAddress: {
-    isSameAddress: false,
-    firstName: "",
-    lastName: "",
-    country: "",
-    street1: "",
-    street2: "",
-    city: "",
-    state: "",
-    postCode: "",
-  },
   email: "",
   phoneNumber: "",
 };
 
 const checkoutSchema = [
-  yup.object().shape({
-    billingAddress: yup.object().shape({
-      firstName: yup.string().required("required"),
-      lastName: yup.string().required("required"),
-      country: yup.string().required("required"),
-      street1: yup.string().required("required"),
-      street2: yup.string(),
-      city: yup.string().required("required"),
-      state: yup.string().required("required"),
-      postCode: yup.string().required("required"),
-    }),
-    shippingAddress: yup.object().shape({
-      isSameAddress: yup.boolean(),
-      firstName: yup.string().when("isSameAddress", {
-        is: false,
-        then: () => yup.string().required("required"),
-      }),
-      lastName: yup.string().when("isSameAddress", {
-        is: false,
-        then: () => yup.string().required("required"),
-      }),
-      country: yup.string().when("isSameAddress", {
-        is: false,
-        then: () => yup.string().required("required"),
-      }),
-      street1: yup.string().when("isSameAddress", {
-        is: false,
-        then: () => yup.string().required("required"),
-      }),
-      street2: yup.string(),
-      city: yup.string().when("isSameAddress", {
-        is: false,
-        then: () => yup.string().required("required"),
-      }),
-      state: yup.string().when("isSameAddress", {
-        is: false,
-        then: () => yup.string().required("required"),
-      }),
-      postCode: yup.string().when("isSameAddress", {
-        is: false,
-        then: () => yup.string().required("required"),
-      }),
-    }),
-  }),
+  yup.object().shape({}),
   yup.object().shape({
     email: yup.string().required("required"),
     phoneNumber: yup.string().required("required"),

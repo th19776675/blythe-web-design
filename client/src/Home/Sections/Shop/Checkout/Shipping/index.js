@@ -13,48 +13,16 @@ const Shipping = (
   ) => {
   return (
     <>
-      <JustifiedText fontSize="20px">BILLING ADDRESS FORM</JustifiedText>
-      <AddressForm 
-        type="billingAddress"
-        values={values.billingAddress}
-        errors={errors}
-        touched={touched}
-        handleBlur={handleBlur}
-        handleChange={handleChange}
-      />
-      <div className="check-same-row">
-        <input 
-          type="checkbox" 
-          className="check-same"  
-          // defaultChecked 
-          value={values.shippingAddress.isSameAddress}
-          onChange={() => {
-            setFieldValue(
-              "shippingAddress.isSameAddress",
-              !values.shippingAddress.isSameAddress
-            )
-          }}
-        />
-        <span className="check-label">
-          SAME FOR SHIPPING ADDRESS
-        </span> 
-      </div>
-
-      {!values.shippingAddress.isSameAddress && (
-        <div>
-          <JustifiedText fontSize="20px">SHIPPING ADDRESS FORM</JustifiedText>
-          <AddressForm 
-          type="shippingAddress"
-          values={values.shippingAddress}
-          touched={touched}
-          errors={errors}
-          handleBlur={handleBlur}
-          handleChange={handleChange}
-          />
-        </div>
-      )}
-
-      <p>{console.log(errors)}</p>
+      <JustifiedText fontSize="20px">PRODUCT DISCLAIMER</JustifiedText>
+      <p style={{textAlign: "center", fontFamily: "ArgentPixelItalic", fontSize: "14px"}}>
+        
+        All BLYTHE products are made to order and may take some time to create.
+        <br /> <br />
+        If you are based in Boorloo (Perth), you have the option to collect your items from our office space at 2A Walcott Street, Mount Lawley 6050. <br /> We will contact you via your phone number or email, once the item is ready to pickup.
+        <br /> <br />
+        If you wish to ship to a country not listed in the checkout form, please contact us via email at contact@blythe.world, or shoot us a message on Instagram (@blythe.magazine).
+        <br />
+      </p>
     </>
   )
 }
