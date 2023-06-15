@@ -47,6 +47,16 @@ module.exports = createCoreController('api::order.order', ({ strapi })=> ({
                 shipping_rate_data: {
                   type: 'fixed_amount',
                   fixed_amount: {
+                    amount: 0,
+                    currency: 'aud',
+                  },
+                  display_name: 'Pickup (Mount Lawley)',
+                },
+              },
+              {
+                shipping_rate_data: {
+                  type: 'fixed_amount',
+                  fixed_amount: {
                     amount: 1000,
                     currency: 'aud',
                   },

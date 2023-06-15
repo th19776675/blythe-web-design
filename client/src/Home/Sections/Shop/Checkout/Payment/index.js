@@ -17,6 +17,15 @@ const Payment = (
           type="text" 
           onBlur={handleBlur}
           onChange={handleChange}
+          value={values.fullName}
+          label="Full Name"
+          placeholder="Full Name (Joe Klart)"
+          name={"fullName"}
+        />
+      <input className="address-input" 
+          type="text" 
+          onBlur={handleBlur}
+          onChange={handleChange}
           value={values.email}
           label="Email"
           placeholder="Email (example@gmail.com)"

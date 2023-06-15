@@ -27,3 +27,11 @@
   background: #d1c142;
   opacity: 0.5;
 }
+
+.email-error-msg {
+  text-align: center;
+  font-size: 14px;
+  margin-top: 5px;
+  opacity: 0.75;
+  text-transform: uppercase;
+}

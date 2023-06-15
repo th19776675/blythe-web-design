@@ -4,7 +4,8 @@
   "info": {
     "singularName": "event-page",
     "pluralName": "event-pages",
-    "displayName": "EventPage"
+    "displayName": "Event Page",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -12,24 +13,26 @@
   "pluginOptions": {},
   "attributes": {
     "adImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     },
     "archive": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": true
+      ]
     }
   }
 }

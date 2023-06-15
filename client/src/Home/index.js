@@ -6,6 +6,9 @@ import Shop from "./Sections/Shop"
 import Videos from "./Sections/Videos"
 import EmailingList from "../Components/EmailingList"
 import ArrowAni from "../Components/ArrowAni"
+import Contact from "./Sections/Contact"
+import Events from "./Sections/Events"
+import Zines from "./Sections/Zines" 
 
 import { useLocation } from 'react-router-dom';
 import queryString from 'query-string';
@@ -120,26 +123,26 @@ const Home = () => {
             {shopState[0] ? <JustifiedText fontSize="16px">CLICK TO VIEW PRODUCTS</JustifiedText> : <Shop />}
           </div>
           <div className="menu-option">
-            <h3 onClick={contactHandler}>CONTACT <ArrowAni>{contactState[1]}</ArrowAni></h3>
-            {contactState[0] ? <JustifiedText fontSize="16px">CLICK TO VIEW CONTACT OPTIONS</JustifiedText> : ""}
-
-          </div>
-          <div className="menu-option">
             <h3 onClick={videoHandler}>LATEST VIDEO <ArrowAni>{videoState[1]}</ArrowAni></h3>
             {videoState[0] ? <JustifiedText fontSize="16px">CLICK TO WATCH A VIDEO</JustifiedText> : <Videos />}
 
           </div>
           <div className="menu-option">
             <h3 onClick={eventHandler}>UPCOMING EVENT <ArrowAni>{eventState[1]}</ArrowAni></h3>
-            {eventState[0] ? <JustifiedText fontSize="16px">CLICK TO EXPAND</JustifiedText> : ""}
+            {eventState[0] ? <JustifiedText fontSize="16px">CLICK TO EXPAND</JustifiedText> : <Events />}
 
           </div>
           <div className="menu-option" id="test-s">
             <h3 onClick={zineHandler}>UPCOMING ZINE <ArrowAni>{zineState[1]}</ArrowAni></h3>
-            {zineState[0] ? <JustifiedText fontSize="16px">CLICK TO EXPAND</JustifiedText> : ""}
+            {zineState[0] ? <JustifiedText fontSize="16px">CLICK TO EXPAND</JustifiedText> : <Zines />}
 
           </div>
 
+          <div className="menu-option">
+            <h3 onClick={contactHandler}>CONTACT <ArrowAni>{contactState[1]}</ArrowAni></h3>
+            {contactState[0] ? <JustifiedText fontSize="16px">CLICK TO VIEW CONTACT OPTIONS</JustifiedText> : <Contact />}
+
+          </div>
           <EmailingList />
         </main>
       </div>

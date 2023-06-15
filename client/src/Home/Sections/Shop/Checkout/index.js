@@ -17,6 +17,7 @@ const Checkout = () => {
   const cart = useSelector((state) => state.cart.cart);
   const isFirstStep = activeStep === 0;
   const isSecondStep = activeStep === 1;
+  const isThirdStep = activeStep === 2;
   const [errorMsg, setErrorMsg] = useState() 
 
   
@@ -33,7 +34,7 @@ const Checkout = () => {
   async function makePayment(values) {
     const stripe = await stripePromise;
     const requestBody = {
-      userName: [values.billingAddress.firstName, values.billingAddress.lastName].join(" "),
+      userName: values.fullName,
       email: values.email,
       products: cart.map(({ id, count }) => ({
         id,
@@ -60,7 +61,7 @@ const Checkout = () => {
       <div className="checkout-col">
         <div className="step-label">
           <JustifiedText fontSize="16px">
-            <span style={{opacity: activeStep === 0 ? 1 : 0.5}}>Billing</span>  <span className="step-line" style={{opacity: activeStep === 1 ? 1 : 0.5}}></span> <span style={{opacity: activeStep === 1 ? 1 : 0.5}}>Payment</span>
+            <span style={{opacity: activeStep === 0 ? 1 : 0.5}}>Disclaimer</span>  <span className="step-line" style={{opacity: activeStep === 1 ? 1 : 0.5}}></span> <span style={{opacity: activeStep === 1 ? 1 : 0.5}}>User Info</span>
           </JustifiedText>
         </div>
         
@@ -94,19 +95,22 @@ const Checkout = () => {
                     setFieldValue={setFieldValue}
                   />
                 )}
-                <div className="address-double" style={{width: "100%"}}>
-                  {!isFirstStep && (
-                    <button className="checkout-buttons"
-                    onClick={() => setActiveStep(activeStep - 1)}
-                    >
-                      Back
+                {isThirdStep? <p style={{textAlign: "center", marginTop: "5px", fontSize:"12px"}}>Loading...</p> : <>
+                  <div className="address-double" style={{width: "100%"}}>
+                    {!isFirstStep && (
+                      <button className="checkout-buttons"
+                      onClick={() => setActiveStep(activeStep - 1)}
+                      >
+                        Back
+                      </button>
+                    )}
+                    <button className="checkout-buttons" type="submit" >
+                      {!isSecondStep ? "Next" : "Place Order"}
                     </button>
-                  )}
-                  <button className="checkout-buttons" type="submit" >
-                    {!isSecondStep ? "Next" : "Place Order"}
-                  </button>
 
-                </div>
+                  </div>
+                </>}
+
                     {errorMsg && (
                       <div className="span-error-msg">{errorMsg}</div>
                     )}
@@ -128,6 +132,7 @@ const initialValues = {
 const checkoutSchema = [
   yup.object().shape({}),
   yup.object().shape({
+    fullName: yup.string().required("required"),
     email: yup.string().required("required"),
     phoneNumber: yup.string().required("required"),
   }),

@@ -4,7 +4,8 @@
   "info": {
     "singularName": "email-list",
     "pluralName": "email-lists",
-    "displayName": "emailList"
+    "displayName": "Mail List",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
